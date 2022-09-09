@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nx-test/lib-a": ["libs/lib-a/src/index.ts"],
+      "@nx-test/lib-b": ["libs/lib-b/src/index.ts"],
+      "@nx-test/lib-c": ["libs/lib-c/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -2,6 +2,9 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "lib-a": "libs/lib-a",
+    "lib-b": "libs/lib-b",
+    "lib-c": "libs/lib-c",
     "nx-test": "apps/nx-test",
     "nx-test-e2e": "apps/nx-test-e2e"
   }
