@@ -11,9 +11,9 @@ jobs:
     name: Nx Cloud - Main Job
     uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.6
     with:
-      number-of-agents: 3
+      number-of-agents: 8
       init-commands: |
-        npx nx-cloud start-ci-run --stop-agents-after="build" --agent-count=3
+        npx nx-cloud start-ci-run --stop-agents-after="build" --agent-count=8
       parallel-commands: |
         npx nx-cloud record -- npx nx workspace-lint
         # npx nx-cloud record -- npx nx format:check
