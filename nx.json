@@ -25,11 +25,13 @@
       }
     }
   },
+  "namedInputs": {
+    "src": ["{projectRoot}/src/**/*", "!{projectRoot}/**/*.spec.tsx"]
+  },
   "targetDefaults": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ]
+      "dependsOn": ["^build"],
+      "inputs": ["src"]
     }
   },
   "generators": {

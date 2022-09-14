@@ -18,7 +18,9 @@
     "lib-n": "libs/lib-n",
     "lib-o": "libs/lib-o",
     "lib-p": "libs/lib-p",
-    "nx-test": "apps/nx-test",
-    "nx-test-e2e": "apps/nx-test-e2e"
+    "lib-q": "libs/lib-q",
+    "lib-r": "libs/lib-r",
+    "lib-s": "libs/lib-s",
+    "lib-t": "libs/lib-t"
   }
 }

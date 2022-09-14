@@ -30,7 +30,11 @@
       "@nx-test/lib-m": ["libs/lib-m/src/index.ts"],
       "@nx-test/lib-n": ["libs/lib-n/src/index.ts"],
       "@nx-test/lib-o": ["libs/lib-o/src/index.ts"],
-      "@nx-test/lib-p": ["libs/lib-p/src/index.ts"]
+      "@nx-test/lib-p": ["libs/lib-p/src/index.ts"],
+      "@nx-test/lib-q": ["libs/lib-q/src/index.ts"],
+      "@nx-test/lib-r": ["libs/lib-r/src/index.ts"],
+      "@nx-test/lib-s": ["libs/lib-s/src/index.ts"],
+      "@nx-test/lib-t": ["libs/lib-t/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
