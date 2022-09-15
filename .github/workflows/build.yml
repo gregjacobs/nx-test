@@ -7,25 +7,25 @@ on:
   pull_request:
 
 # NX DISTRIBUTED
-# jobs:
-#   main:
-#     name: Nx Cloud - Main Job
-#     uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.6
-#     with:
-#       number-of-agents: 10
-#       init-commands: |
-#         npx nx-cloud start-ci-run --stop-agents-after="build" --agent-count=10
-#       #parallel-commands: |
-#         #  npx nx-cloud record -- npx nx workspace-lint
-#         #  npx nx-cloud record -- npx nx format:check
-#       parallel-commands-on-agents: |
-#         npx nx affected --target=build --skip-nx-cache
+jobs:
+  main:
+    name: Nx Cloud - Main Job
+    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.6
+    with:
+      number-of-agents: 10
+      init-commands: |
+        npx nx-cloud start-ci-run --stop-agents-after="build" --agent-count=10
+      #parallel-commands: |
+        #  npx nx-cloud record -- npx nx workspace-lint
+        #  npx nx-cloud record -- npx nx format:check
+      parallel-commands-on-agents: |
+        npx nx affected --target=build --skip-nx-cache --base=6de6001ef6ecd3c51c135b869a4cb61d754c6599
 
-#   agents:
-#     name: Nx Cloud - Agents
-#     uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.6
-#     with:
-#       number-of-agents: 10
+  agents:
+    name: Nx Cloud - Agents
+    uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.6
+    with:
+      number-of-agents: 10
 
 # Other commands
 #         #npx nx affected --target=lint --parallel=2
@@ -34,17 +34,20 @@ on:
 
 
 # NX Single Runner
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: actions/setup-node@v2
+#         with:
+#           node-version: '14'
 
-      - name: npm ci
-        run: npm ci
+#       - name: npm ci
+#         run: npm ci
 
-      - name: build
-        run: npx nx affected --target=build --skip-nx-cache --base=6de6001ef6ecd3c51c135b869a4cb61d754c6599
+#       - name: git show
+#         run: git show 6de6001ef6ecd3c51c135b869a4cb61d754c6599
+
+#       - name: build
+#         run: npx nx@latest affected --target=build --skip-nx-cache --base=6de6001ef6ecd3c51c135b869a4cb61d754c6599 --head=HEAD
