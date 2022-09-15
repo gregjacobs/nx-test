@@ -3,9 +3,7 @@ import fse from 'fs-extra';
 
 for (let i = 1; i <= 100; i++) {
     // Generate file contents
-    let fileContents = dedent`
-        console.log('update #2');
-    `;
+    let fileContents = ``;
     for (let j = 0; j < 100000; j++) {
         fileContents += dedent`
             export function doThing${j}() {
@@ -15,7 +13,14 @@ for (let i = 1; i <= 100; i++) {
     }
 
     // Output the source file
-    fse.outputFileSync(`libs/lib-${i}/src/index.ts`, fileContents);
+    fse.outputFileSync(`libs/lib-${i}/src/functions.ts`, fileContents);
+
+    // Output a source file with a change
+    fse.outputFileSync(`libs/lib-${i}/src/index.ts`, dedent`
+        export * from './functions';
+
+        console.log('update #${Date.now()}');
+    `);
 
     // Output project.json with faster building run-commands:
     fse.outputFileSync(`libs/lib-${i}/project.json`, dedent`
