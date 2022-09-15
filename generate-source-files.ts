@@ -4,7 +4,7 @@ import fse from 'fs-extra';
 for (let i = 1; i <= 100; i++) {
     // Generate file contents
     let fileContents = dedent`
-        console.log('update #1');
+        console.log('update #2');
     `;
     for (let j = 0; j < 100000; j++) {
         fileContents += dedent`
