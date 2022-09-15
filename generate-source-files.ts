@@ -3,11 +3,13 @@ import fse from 'fs-extra';
 
 for (let i = 1; i <= 100; i++) {
     // Generate file contents
-    let fileContents = '';
+    let fileContents = dedent`
+        console.log('update #1');
+    `;
     for (let j = 0; j < 100000; j++) {
         fileContents += dedent`
             export function doThing${j}() {
-                console.log('Hi ${i} ${j}6');
+                console.log('Hi ${i} ${j}');
             }
         ` + '\n';
     }
