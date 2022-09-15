@@ -6,23 +6,25 @@ on:
       - main
   pull_request:
 
-# NX DISTRIBUTED
-# jobs:
-#   main:
-#     name: Nx Cloud - Main Job
-#     uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.6
-#     with:
-#       number-of-agents: 10
-#       init-commands: |
-#         npx nx-cloud start-ci-run --stop-agents-after="build" --agent-count=10
-#       #parallel-commands: |
-#         #npx nx-cloud record -- npx nx workspace-lint
-#         # npx nx-cloud record -- npx nx format:check
-#       parallel-commands-on-agents: |
+# Other commands
 #         #npx nx affected --target=lint --parallel=2
 #         #npx nx affected --target=test --parallel=2 --ci --code-coverage
 #         # npx nx affected --target=build --parallel=2 --skip-nx-cache
-#         npx nx run-many --target=build --skip-nx-cache
+
+# NX DISTRIBUTED
+jobs:
+  main:
+    name: Nx Cloud - Main Job
+    uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.6
+    with:
+      number-of-agents: 10
+      init-commands: |
+        npx nx-cloud start-ci-run --stop-agents-after="build" --agent-count=10
+      #parallel-commands: |
+      #  npx nx-cloud record -- npx nx workspace-lint
+      #  npx nx-cloud record -- npx nx format:check
+      parallel-commands-on-agents: |
+        npx nx affected --base=42cb2133b4f0da9b1b437f09e80ab74bf7ccf927 --target=build --skip-nx-cache
 
 #   agents:
 #     name: Nx Cloud - Agents
@@ -31,17 +33,18 @@ on:
 #       number-of-agents: 10
 
 # NX Single Runner
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: actions/setup-node@v2
+#         with:
+#           node-version: '14'
 
-      - name: npm ci
-        run: npm ci
+#       - name: npm ci
+#         run: npm ci
 
-      - name: build
-        run: npx nx run-many --target=build --skip-nx-cache
+#       - name: build
+#         #run: npx nx run-many --target=build --skip-nx-cache
+#         run: npx nx affected --base=42cb2133b4f0da9b1b437f09e80ab74bf7ccf927 --target=build --skip-nx-cache
