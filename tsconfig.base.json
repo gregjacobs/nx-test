@@ -134,7 +134,12 @@
       "@nx-test/lib-q": ["libs/lib-q/src/index.ts"],
       "@nx-test/lib-r": ["libs/lib-r/src/index.ts"],
       "@nx-test/lib-s": ["libs/lib-s/src/index.ts"],
-      "@nx-test/lib-t": ["libs/lib-t/src/index.ts"]
+      "@nx-test/lib-t": ["libs/lib-t/src/index.ts"],
+      "@nx-test/lib-with-dep-1": ["libs/lib-with-dep-1/src/index.ts"],
+      "@nx-test/lib-with-dep-2": ["libs/lib-with-dep-2/src/index.ts"],
+      "@nx-test/lib-with-dep-3": ["libs/lib-with-dep-3/src/index.ts"],
+      "@nx-test/lib-with-dep-4": ["libs/lib-with-dep-4/src/index.ts"],
+      "@nx-test/lib-with-dep-5": ["libs/lib-with-dep-5/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

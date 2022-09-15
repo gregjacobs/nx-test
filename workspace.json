@@ -101,6 +101,11 @@
     "lib-96": "libs/lib-96",
     "lib-97": "libs/lib-97",
     "lib-98": "libs/lib-98",
-    "lib-99": "libs/lib-99"
+    "lib-99": "libs/lib-99",
+    "lib-with-dep-1": "libs/lib-with-dep-1",
+    "lib-with-dep-2": "libs/lib-with-dep-2",
+    "lib-with-dep-3": "libs/lib-with-dep-3",
+    "lib-with-dep-4": "libs/lib-with-dep-4",
+    "lib-with-dep-5": "libs/lib-with-dep-5"
   }
 }

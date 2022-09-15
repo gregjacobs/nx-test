@@ -19,7 +19,7 @@ on:
 #         #  npx nx-cloud record -- npx nx workspace-lint
 #         #  npx nx-cloud record -- npx nx format:check
 #       parallel-commands-on-agents: |
-#         npx nx affected --base=42cb2133b4f0da9b1b437f09e80ab74bf7ccf927 --target=build --skip-nx-cache
+#         npx nx affected --target=build --skip-nx-cache
 
 #   agents:
 #     name: Nx Cloud - Agents
@@ -47,5 +47,4 @@ jobs:
         run: npm ci
 
       - name: build
-        #run: npx nx run-many --target=build --skip-nx-cache
-        run: npx nx affected --base=42cb2133b4f0da9b1b437f09e80ab74bf7ccf927 --target=build --skip-nx-cache
+        run: npx nx affected --target=build --skip-nx-cache

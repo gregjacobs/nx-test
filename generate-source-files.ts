@@ -1,6 +1,40 @@
 import dedent from 'dedent';
 import fse from 'fs-extra';
 
+// Generate 5 packages that rely on each other
+for (let i = 1; i <= 5; i++) {
+    // Generate file contents
+    let fileContents = ``;
+    for (let j = 0; j < 100000; j++) {
+        fileContents += dedent`
+            export function doThing${j}() {
+                console.log('Hi ${i} ${j}');
+            }
+        ` + '\n';
+    }
+
+    // Output the source file
+    fse.outputFileSync(`libs/lib-with-dep-${i}/src/functions.ts`, fileContents);
+
+
+    // Output a source file with a change
+    fse.outputFileSync(`libs/lib-with-dep-${i}/src/index.ts`, dedent`
+        import { doThing0 } from './functions';
+        ${i === 1 
+            ? '' 
+            : `export * from '@nx-test/lib-with-dep-${i - 1}';`
+        }
+
+        console.log('update #${Date.now()}');
+        console.log(doThing0);
+
+        export function myFn${i}() {
+            console.log('myFn${i}');
+        }
+    `);
+}
+
+// Generate 100 parallel packages
 for (let i = 1; i <= 100; i++) {
     // Generate file contents
     let fileContents = ``;
