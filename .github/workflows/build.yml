@@ -6,7 +6,7 @@ on:
       - main
   pull_request:
 
-# NX DISTRIBUTED
+# NX DISTRIBUTED (attempt 2)
 jobs:
   main:
     name: Nx Cloud - Main Job
