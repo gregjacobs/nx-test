@@ -47,4 +47,4 @@ jobs:
         run: npm ci
 
       - name: build
-        run: npx nx affected --target=build --skip-nx-cache --base=afc55ee0a8e7f7298a734aa46ea5b24d10993a99
+        run: npx nx affected --target=build --skip-nx-cache --base=6de6001ef6ecd3c51c135b869a4cb61d754c6599
