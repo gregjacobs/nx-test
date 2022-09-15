@@ -3,16 +3,23 @@
   "sourceRoot": "libs/lib-1/src",
   "projectType": "library",
   "targets": {
-    "build": {
-      "executor": "@nrwl/js:tsc",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/libs/lib-1",
-        "main": "libs/lib-1/src/index.ts",
-        "tsConfig": "libs/lib-1/tsconfig.lib.json",
-        "assets": ["libs/lib-1/*.md"]
-      }
-    },
+    // "build": {
+    //   "executor": "nx:run-commands",
+    //   "options": {
+    //     "command": "tsc -p tsconfig.lib.json",
+    //     "cwd": "libs/lib-1"
+    //   }
+    // },
+    // "build": {
+    //   "executor": "@nrwl/js:tsc",
+    //   "outputs": ["{options.outputPath}"],
+    //   "options": {
+    //     "outputPath": "dist/libs/lib-1",
+    //     "main": "libs/lib-1/src/index.ts",
+    //     "tsConfig": "libs/lib-1/tsconfig.lib.json",
+    //     "assets": ["libs/lib-1/*.md"]
+    //   }
+    // },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
