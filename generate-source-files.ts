@@ -7,7 +7,7 @@ for (let i = 1; i <= 100; i++) {
     for (let j = 0; j < 100000; j++) {
         fileContents += dedent`
             export function doThing${j}() {
-                console.log('Hi ${i} ${j}5');
+                console.log('Hi ${i} ${j}6');
             }
         ` + '\n';
     }
