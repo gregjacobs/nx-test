@@ -22,23 +22,23 @@ for (let i = 1; i <= 100; i++) {
             "sourceRoot": "libs/lib-${i}/src",
             "projectType": "library",
             "targets": {
-                // "build": {
-                //     "executor": "nx:run-commands",
-                //     "options": {
-                //         "command": "tsc -p tsconfig.lib.json",
-                //         "cwd": "libs/lib-${i}"
-                //     }
-                // },
                 "build": {
-                  "executor": "@nrwl/js:tsc",
-                  "outputs": ["{options.outputPath}"],
-                  "options": {
-                    "outputPath": "dist/libs/lib-${i}",
-                    "main": "libs/lib-${i}/src/index.ts",
-                    "tsConfig": "libs/lib-${i}/tsconfig.lib.json",
-                    "assets": ["libs/lib-${i}/*.md"]
-                  }
+                    "executor": "nx:run-commands",
+                    "options": {
+                        "command": "tsc -p tsconfig.lib.json",
+                        "cwd": "libs/lib-${i}"
+                    }
                 },
+                // "build": {
+                //   "executor": "@nrwl/js:tsc",
+                //   "outputs": ["{options.outputPath}"],
+                //   "options": {
+                //     "outputPath": "dist/libs/lib-${i}",
+                //     "main": "libs/lib-${i}/src/index.ts",
+                //     "tsConfig": "libs/lib-${i}/tsconfig.lib.json",
+                //     "assets": ["libs/lib-${i}/*.md"]
+                //   }
+                // },
                 "lint": {
                     "executor": "@nrwl/linter:eslint",
                     "outputs": ["{options.outputFile}"],

@@ -3,23 +3,23 @@
     "sourceRoot": "libs/lib-42/src",
     "projectType": "library",
     "targets": {
-        // "build": {
-        //     "executor": "nx:run-commands",
-        //     "options": {
-        //         "command": "tsc -p tsconfig.lib.json",
-        //         "cwd": "libs/lib-42"
-        //     }
-        // },
         "build": {
-          "executor": "@nrwl/js:tsc",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/libs/lib-42",
-            "main": "libs/lib-42/src/index.ts",
-            "tsConfig": "libs/lib-42/tsconfig.lib.json",
-            "assets": ["libs/lib-42/*.md"]
-          }
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "tsc -p tsconfig.lib.json",
+                "cwd": "libs/lib-42"
+            }
         },
+        // "build": {
+        //   "executor": "@nrwl/js:tsc",
+        //   "outputs": ["{options.outputPath}"],
+        //   "options": {
+        //     "outputPath": "dist/libs/lib-42",
+        //     "main": "libs/lib-42/src/index.ts",
+        //     "tsConfig": "libs/lib-42/tsconfig.lib.json",
+        //     "assets": ["libs/lib-42/*.md"]
+        //   }
+        // },
         "lint": {
             "executor": "@nrwl/linter:eslint",
             "outputs": ["{options.outputFile}"],
