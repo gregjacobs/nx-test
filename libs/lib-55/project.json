@@ -3,23 +3,23 @@
     "sourceRoot": "libs/lib-55/src",
     "projectType": "library",
     "targets": {
-        "build": {
-            "executor": "nx:run-commands",
-            "options": {
-                "command": "tsc -p tsconfig.lib.json",
-                "cwd": "libs/lib-55"
-            }
-        },
         // "build": {
-        //   "executor": "@nrwl/js:tsc",
-        //   "outputs": ["{options.outputPath}"],
-        //   "options": {
-        //     "outputPath": "dist/libs/lib-55",
-        //     "main": "libs/lib-55/src/index.ts",
-        //     "tsConfig": "libs/lib-55/tsconfig.lib.json",
-        //     "assets": ["libs/lib-55/*.md"]
-        //   }
+        //     "executor": "nx:run-commands",
+        //     "options": {
+        //         "command": "tsc -p tsconfig.lib.json",
+        //         "cwd": "libs/lib-55"
+        //     }
         // },
+        "build": {
+          "executor": "@nrwl/js:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/lib-55",
+            "main": "libs/lib-55/src/index.ts",
+            "tsConfig": "libs/lib-55/tsconfig.lib.json",
+            "assets": ["libs/lib-55/*.md"]
+          }
+        },
         "lint": {
             "executor": "@nrwl/linter:eslint",
             "outputs": ["{options.outputFile}"],
