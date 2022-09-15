@@ -1,33 +1,40 @@
 {
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/lib-54/src",
-  "projectType": "library",
-  "targets": {
-    "build": {
-      "executor": "@nrwl/js:tsc",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/libs/lib-54",
-        "main": "libs/lib-54/src/index.ts",
-        "tsConfig": "libs/lib-54/tsconfig.lib.json",
-        "assets": ["libs/lib-54/*.md"]
-      }
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/lib-54/src",
+    "projectType": "library",
+    "targets": {
+        "build": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "tsc -p tsconfig.lib.json",
+                "cwd": "libs/lib-54"
+            }
+        },
+        // "build": {
+        //   "executor": "@nrwl/js:tsc",
+        //   "outputs": ["{options.outputPath}"],
+        //   "options": {
+        //     "outputPath": "dist/libs/lib-54",
+        //     "main": "libs/lib-54/src/index.ts",
+        //     "tsConfig": "libs/lib-54/tsconfig.lib.json",
+        //     "assets": ["libs/lib-54/*.md"]
+        //   }
+        // },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["libs/lib-54/**/*.ts"]
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/lib-54"],
+            "options": {
+            "jestConfig": "libs/lib-54/jest.config.ts",
+                "passWithNoTests": true
+            }
+        }
     },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["libs/lib-54/**/*.ts"]
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/lib-54"],
-      "options": {
-        "jestConfig": "libs/lib-54/jest.config.ts",
-        "passWithNoTests": true
-      }
-    }
-  },
-  "tags": []
+    "tags": []
 }
