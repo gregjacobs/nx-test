@@ -5,5 +5,5 @@ console.log('update #1663298237733');
 console.log(doThing0);
 
 export function myFn10() {
-    console.log('myFn10');
+    console.log('myFn10 with edit #2');
 }
