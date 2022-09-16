@@ -1,7 +1,7 @@
 import { doThing0 } from './functions';
 export * from '@nx-test/lib-with-dep-1';
 
-console.log('update #1663296905765');
+console.log('update #1663298235551');
 console.log(doThing0);
 
 export function myFn2() {

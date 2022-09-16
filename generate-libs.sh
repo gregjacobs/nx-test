@@ -1,5 +1,5 @@
-i=1
-while [ $i -lt 6 ]; do
+i=6
+while [ $i -lt 11 ]; do
     printf "${i}"
     nx generate @nrwl/js:library lib-with-dep-${i}
     i=$(($i+1));

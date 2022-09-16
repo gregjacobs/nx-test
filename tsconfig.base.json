@@ -116,10 +116,15 @@
       "@nx-test/lib-98": ["libs/lib-98/src/index.ts"],
       "@nx-test/lib-99": ["libs/lib-99/src/index.ts"],
       "@nx-test/lib-with-dep-1": ["libs/lib-with-dep-1/src/index.ts"],
+      "@nx-test/lib-with-dep-10": ["libs/lib-with-dep-10/src/index.ts"],
       "@nx-test/lib-with-dep-2": ["libs/lib-with-dep-2/src/index.ts"],
       "@nx-test/lib-with-dep-3": ["libs/lib-with-dep-3/src/index.ts"],
       "@nx-test/lib-with-dep-4": ["libs/lib-with-dep-4/src/index.ts"],
-      "@nx-test/lib-with-dep-5": ["libs/lib-with-dep-5/src/index.ts"]
+      "@nx-test/lib-with-dep-5": ["libs/lib-with-dep-5/src/index.ts"],
+      "@nx-test/lib-with-dep-6": ["libs/lib-with-dep-6/src/index.ts"],
+      "@nx-test/lib-with-dep-7": ["libs/lib-with-dep-7/src/index.ts"],
+      "@nx-test/lib-with-dep-8": ["libs/lib-with-dep-8/src/index.ts"],
+      "@nx-test/lib-with-dep-9": ["libs/lib-with-dep-9/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

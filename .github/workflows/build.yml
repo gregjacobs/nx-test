@@ -19,7 +19,7 @@ jobs:
         #  npx nx-cloud record -- npx nx workspace-lint
         #  npx nx-cloud record -- npx nx format:check
       parallel-commands-on-agents: |
-        npx nx affected --target=build --parallel=3 --base=a22fe9919af16205261378afb2898c6d29bb99a5
+        npx nx affected --target=build --parallel=3
 
   agents:
     name: Nx Cloud - Agents

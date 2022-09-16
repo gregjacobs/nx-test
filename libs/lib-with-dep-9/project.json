@@ -1,0 +1,40 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/lib-with-dep-9/src",
+    "projectType": "library",
+    "targets": {
+        // "build": {
+        //     "executor": "nx:run-commands",
+        //     "options": {
+        //         "command": "tsc -p tsconfig.lib.json",
+        //         "cwd": "libs/lib-with-dep-9"
+        //     }
+        // },
+        "build": {
+          "executor": "@nrwl/js:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/lib-with-dep-9",
+            "main": "libs/lib-with-dep-9/src/index.ts",
+            "tsConfig": "libs/lib-with-dep-9/tsconfig.lib.json",
+            "assets": ["libs/lib-with-dep-9/*.md"]
+          }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["libs/lib-with-dep-9/**/*.ts"]
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/lib-with-dep-9"],
+            "options": {
+            "jestConfig": "libs/lib-with-dep-9/jest.config.ts",
+                "passWithNoTests": true
+            }
+        }
+    },
+    "tags": []
+}
