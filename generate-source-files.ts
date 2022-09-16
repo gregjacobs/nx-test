@@ -16,7 +16,6 @@ for (let i = 1; i <= 5; i++) {
     // Output the source file
     fse.outputFileSync(`libs/lib-with-dep-${i}/src/functions.ts`, fileContents);
 
-
     // Output a source file with a change
     fse.outputFileSync(`libs/lib-with-dep-${i}/src/index.ts`, dedent`
         import { doThing0 } from './functions';
@@ -32,6 +31,8 @@ for (let i = 1; i <= 5; i++) {
             console.log('myFn${i}');
         }
     `);
+
+    generateSupportFiles(`lib-with-dep-${i}`);
 }
 
 // Generate 100 parallel packages
@@ -56,42 +57,46 @@ for (let i = 1; i <= 100; i++) {
         console.log('update #${Date.now()}');
     `);
 
+    generateSupportFiles(`lib-${i}`);
+}
+
+function generateSupportFiles(libName: string) {
     // Output project.json with faster building run-commands:
-    fse.outputFileSync(`libs/lib-${i}/project.json`, dedent`
+    fse.outputFileSync(`libs/${libName}/project.json`, dedent`
         {
             "$schema": "../../node_modules/nx/schemas/project-schema.json",
-            "sourceRoot": "libs/lib-${i}/src",
+            "sourceRoot": "libs/${libName}/src",
             "projectType": "library",
             "targets": {
                 "build": {
                     "executor": "nx:run-commands",
                     "options": {
                         "command": "tsc -p tsconfig.lib.json",
-                        "cwd": "libs/lib-${i}"
+                        "cwd": "libs/${libName}"
                     }
                 },
                 // "build": {
                 //   "executor": "@nrwl/js:tsc",
                 //   "outputs": ["{options.outputPath}"],
                 //   "options": {
-                //     "outputPath": "dist/libs/lib-${i}",
-                //     "main": "libs/lib-${i}/src/index.ts",
-                //     "tsConfig": "libs/lib-${i}/tsconfig.lib.json",
-                //     "assets": ["libs/lib-${i}/*.md"]
+                //     "outputPath": "dist/libs/${libName}",
+                //     "main": "libs/${libName}/src/index.ts",
+                //     "tsConfig": "libs/${libName}/tsconfig.lib.json",
+                //     "assets": ["libs/${libName}/*.md"]
                 //   }
                 // },
                 "lint": {
                     "executor": "@nrwl/linter:eslint",
                     "outputs": ["{options.outputFile}"],
                     "options": {
-                        "lintFilePatterns": ["libs/lib-${i}/**/*.ts"]
+                        "lintFilePatterns": ["libs/${libName}/**/*.ts"]
                     }
                 },
                 "test": {
                     "executor": "@nrwl/jest:jest",
-                    "outputs": ["coverage/libs/lib-${i}"],
+                    "outputs": ["coverage/libs/${libName}"],
                     "options": {
-                    "jestConfig": "libs/lib-${i}/jest.config.ts",
+                    "jestConfig": "libs/${libName}/jest.config.ts",
                         "passWithNoTests": true
                     }
                 }
@@ -99,4 +104,5 @@ for (let i = 1; i <= 100; i++) {
             "tags": []
         }      
     `);
+
 }

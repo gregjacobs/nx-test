@@ -1,33 +1,40 @@
 {
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/lib-with-dep-1/src",
-  "projectType": "library",
-  "targets": {
-    "build": {
-      "executor": "@nrwl/js:tsc",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/libs/lib-with-dep-1",
-        "main": "libs/lib-with-dep-1/src/index.ts",
-        "tsConfig": "libs/lib-with-dep-1/tsconfig.lib.json",
-        "assets": ["libs/lib-with-dep-1/*.md"]
-      }
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/lib-with-dep-1/src",
+    "projectType": "library",
+    "targets": {
+        "build": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "tsc -p tsconfig.lib.json",
+                "cwd": "libs/lib-with-dep-1"
+            }
+        },
+        // "build": {
+        //   "executor": "@nrwl/js:tsc",
+        //   "outputs": ["{options.outputPath}"],
+        //   "options": {
+        //     "outputPath": "dist/libs/lib-with-dep-1",
+        //     "main": "libs/lib-with-dep-1/src/index.ts",
+        //     "tsConfig": "libs/lib-with-dep-1/tsconfig.lib.json",
+        //     "assets": ["libs/lib-with-dep-1/*.md"]
+        //   }
+        // },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["libs/lib-with-dep-1/**/*.ts"]
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/lib-with-dep-1"],
+            "options": {
+            "jestConfig": "libs/lib-with-dep-1/jest.config.ts",
+                "passWithNoTests": true
+            }
+        }
     },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["libs/lib-with-dep-1/**/*.ts"]
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/lib-with-dep-1"],
-      "options": {
-        "jestConfig": "libs/lib-with-dep-1/jest.config.ts",
-        "passWithNoTests": true
-      }
-    }
-  },
-  "tags": []
+    "tags": []
 }

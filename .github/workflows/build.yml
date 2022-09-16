@@ -12,20 +12,20 @@ jobs:
     name: Nx Cloud - Main Job
     uses: nrwl/ci/.github/workflows/nx-cloud-main.yml@v0.6
     with:
-      number-of-agents: 10
+      number-of-agents: 2
       init-commands: |
-        npx nx-cloud start-ci-run --stop-agents-after="build" --agent-count=10
+        npx nx-cloud start-ci-run --stop-agents-after="build" --agent-count=2
       #parallel-commands: |
         #  npx nx-cloud record -- npx nx workspace-lint
         #  npx nx-cloud record -- npx nx format:check
       parallel-commands-on-agents: |
-        npx nx affected --target=build --skip-nx-cache --base=38e4b0b652ba09c610fd6f28648f90f2e7d32dd6
+        npx nx build lib-with-dep-5 --skip-nx-cache
 
   agents:
     name: Nx Cloud - Agents
     uses: nrwl/ci/.github/workflows/nx-cloud-agents.yml@v0.6
     with:
-      number-of-agents: 10
+      number-of-agents: 2
 
 # Other commands
 #         #npx nx affected --target=lint --parallel=2
