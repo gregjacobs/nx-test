@@ -3,23 +3,23 @@
     "sourceRoot": "libs/lib-with-dep-3/src",
     "projectType": "library",
     "targets": {
-        "build": {
-            "executor": "nx:run-commands",
-            "options": {
-                "command": "tsc -p tsconfig.lib.json",
-                "cwd": "libs/lib-with-dep-3"
-            }
-        },
         // "build": {
-        //   "executor": "@nrwl/js:tsc",
-        //   "outputs": ["{options.outputPath}"],
-        //   "options": {
-        //     "outputPath": "dist/libs/lib-with-dep-3",
-        //     "main": "libs/lib-with-dep-3/src/index.ts",
-        //     "tsConfig": "libs/lib-with-dep-3/tsconfig.lib.json",
-        //     "assets": ["libs/lib-with-dep-3/*.md"]
-        //   }
+        //     "executor": "nx:run-commands",
+        //     "options": {
+        //         "command": "tsc -p tsconfig.lib.json",
+        //         "cwd": "libs/lib-with-dep-3"
+        //     }
         // },
+        "build": {
+          "executor": "@nrwl/js:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/lib-with-dep-3",
+            "main": "libs/lib-with-dep-3/src/index.ts",
+            "tsConfig": "libs/lib-with-dep-3/tsconfig.lib.json",
+            "assets": ["libs/lib-with-dep-3/*.md"]
+          }
+        },
         "lint": {
             "executor": "@nrwl/linter:eslint",
             "outputs": ["{options.outputFile}"],

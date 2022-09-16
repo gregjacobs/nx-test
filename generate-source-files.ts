@@ -68,23 +68,23 @@ function generateSupportFiles(libName: string) {
             "sourceRoot": "libs/${libName}/src",
             "projectType": "library",
             "targets": {
-                "build": {
-                    "executor": "nx:run-commands",
-                    "options": {
-                        "command": "tsc -p tsconfig.lib.json",
-                        "cwd": "libs/${libName}"
-                    }
-                },
                 // "build": {
-                //   "executor": "@nrwl/js:tsc",
-                //   "outputs": ["{options.outputPath}"],
-                //   "options": {
-                //     "outputPath": "dist/libs/${libName}",
-                //     "main": "libs/${libName}/src/index.ts",
-                //     "tsConfig": "libs/${libName}/tsconfig.lib.json",
-                //     "assets": ["libs/${libName}/*.md"]
-                //   }
+                //     "executor": "nx:run-commands",
+                //     "options": {
+                //         "command": "tsc -p tsconfig.lib.json",
+                //         "cwd": "libs/${libName}"
+                //     }
                 // },
+                "build": {
+                  "executor": "@nrwl/js:tsc",
+                  "outputs": ["{options.outputPath}"],
+                  "options": {
+                    "outputPath": "dist/libs/${libName}",
+                    "main": "libs/${libName}/src/index.ts",
+                    "tsConfig": "libs/${libName}/tsconfig.lib.json",
+                    "assets": ["libs/${libName}/*.md"]
+                  }
+                },
                 "lint": {
                     "executor": "@nrwl/linter:eslint",
                     "outputs": ["{options.outputFile}"],
